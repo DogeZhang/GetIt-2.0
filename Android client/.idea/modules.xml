@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GetIt-2.0.iml" filepath="$PROJECT_DIR$/GetIt-2.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android client.iml" filepath="$PROJECT_DIR$/Android client.iml" />
+      <module fileurl="file://D:\Documents\GetIt-2.0\Android client\GetIt-2.0.iml" filepath="D:\Documents\GetIt-2.0\Android client\GetIt-2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Documents\GetIt-2.0\Android client\app\app.iml" filepath="D:\Documents\GetIt-2.0\Android client\app\app.iml" />
     </modules>
   </component>
 </project>
