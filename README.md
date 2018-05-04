@@ -7,7 +7,8 @@ GetIt 重构第二版
    - Level 23
  - Server
    - Web HTTPS(working)/HTTP(no working due to ICP record)
-   - IP 47.93.203.213
+   - Domain Name : https://www.minram.top
+   - IP 47.93.203.213
    - System Ubuntu 16.04
    - Tomcat 8.5.0  /usr/tomcat
    - JDK 1.8.0.171
