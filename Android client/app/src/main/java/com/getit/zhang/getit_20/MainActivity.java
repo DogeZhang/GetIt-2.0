@@ -15,7 +15,9 @@ import com.getit.zhang.getit_20.API.Model.Login;
 import com.getit.zhang.getit_20.API.Model.User;
 import com.getit.zhang.getit_20.API.Service.UserClient;
 
-import butterknife.BindInt;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -46,16 +48,19 @@ public class MainActivity extends AppCompatActivity {
         fullScreen(this);
 
     }
+
     private static String token;
 
     @BindView(R.id.loginAcount)
     EditText loginAcountText;
     @BindView(R.id.loginPassword)
     EditText loginPassText;
+
     @OnClick(R.id.loginButton)
     public void LoginClick(){
+        String pwd = MD5(loginPassText.getText().toString());
         Login login  = new Login(loginAcountText.getText().toString()
-                ,loginPassText.getText().toString());
+                ,pwd);
 
         Call<User> call= userClient.login(login);
         call.enqueue(new Callback<User>() {
@@ -67,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(MainActivity.this,"login no correct :(",Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
@@ -77,6 +81,34 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     *  encrypt for password thought MD5
+     * @param pwd
+     * @return
+     */
+    private String MD5(String pwd){
+        if(pwd.isEmpty()) return "";
+
+        MessageDigest md5 = null;
+
+        try{
+            md5 = MessageDigest.getInstance("MD5");
+            byte[] bytes = md5.digest(pwd.getBytes());
+            StringBuilder result = new StringBuilder();
+            for(byte b:bytes){
+                String temp = Integer.toHexString(b & 0xff) ;
+                if(temp.length()==1){
+                    result.append('0');
+                }
+                result.append(temp);
+            }
+            return result.toString();
+        }catch (NoSuchAlgorithmException e){
+            e.printStackTrace();
+        }
+
+        return "";
+    }
 
 
     /**

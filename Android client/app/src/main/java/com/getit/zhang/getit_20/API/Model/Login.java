@@ -5,11 +5,11 @@ package com.getit.zhang.getit_20.API.Model;
  */
 
 public class Login {
-    private String  user;
+    private String  username;
     private String  password;
 
-    public Login(String user,String password) {
-        this.user = user;
+    public Login(String username,String password) {
+        this.username = username;
         this.password=password;
     }
 }
